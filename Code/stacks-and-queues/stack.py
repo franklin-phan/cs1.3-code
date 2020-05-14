@@ -23,9 +23,9 @@ class LinkedStack(object):
         """Return True if this stack is empty, or False otherwise."""
         # TODO: Check if empty
         if self.list.length() == 0:
-            return False
-        else:
             return True
+        else:
+            return False
 
     def length(self):
         """Return the number of items in this stack."""
@@ -53,11 +53,10 @@ class LinkedStack(object):
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
-            raise valueError('Stack is empty')
-        else:
-            item = self.list.head.data
-            self.list.delete(item)
-            return item
+            raise ValueError('Stack is Empty')
+        item = self.peek()
+        self.list.delete(item)
+        return item
 
 
 # Implement ArrayStack below, then change the assignment at the bottom
@@ -86,6 +85,7 @@ class ArrayStack(object):
 
     def length(self):
         """Return the number of items in this stack."""
+        return len(self.list)
         # TODO: Count number of items
 
     def push(self, item):
